@@ -1,5 +1,5 @@
-require("lua.options")
-require("lua.lazy")
+require("options")
+require("lazy_setup")
 
 
 
