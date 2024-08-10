@@ -12,3 +12,4 @@ vim.g.mapleader = " "
 
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.cursorline = true
