@@ -62,3 +62,10 @@ wk.add({
     { "<leader>st", telescope.builtin, desc="[t]elescope" }
 })
 
+local gitsigns = require("gitsigns")
+
+wk.add({
+    { "<leader>g", group="[g]it", icon=require("nvim-web-devicons").get_icon("git", "git") },
+
+    { "<leader>gp", gitsigns.preview_hunk, desc="[p]review hunk" }
+})
