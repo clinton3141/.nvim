@@ -63,9 +63,14 @@ wk.add({
 })
 
 local gitsigns = require("gitsigns")
-
 wk.add({
     { "<leader>g", group="[g]it", icon=require("nvim-web-devicons").get_icon("git", "git") },
 
     { "<leader>gp", gitsigns.preview_hunk, desc="[p]review hunk" }
 })
+
+-- ToggleTerm
+wk.add({
+    { "<C-`>", "<cmd>ToggleTerm<CR>", desc="Open terminal" }
+});
+
