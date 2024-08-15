@@ -3,9 +3,7 @@ return {
         "williamboman/mason.nvim",
         tag = 'v1.10.0',
         lazy = false,
-        config = function()
-            require("mason").setup()
-        end,
+        opts = {}
     },
     {
         "williamboman/mason-lspconfig.nvim",
@@ -13,12 +11,8 @@ return {
         tag = 'v1.30.0',
         opts = {
             auto_install = false,
-        },
-        config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "phpactor" }
-            })
-        end
+            ensure_installed = { "lua_ls", "phpactor" }
+        }
     },
     {
         "neovim/nvim-lspconfig",
