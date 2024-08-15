@@ -1,4 +1,5 @@
 local wk = require("which-key")
+local telescope = require("telescope.builtin")
 
 -- Harpoon
 local harpoon = require("harpoon")
@@ -20,13 +21,16 @@ wk.add({
 -- LSP
 wk.add({
     { "K", vim.lsp.buf.hover },
-    { "gd", vim.lsp.buf.definition, desc="go [d]efinition" },
-    { "gr", vim.lsp.buf.references, desc="go [r]eferences" },
-    { "<leader>ca", vim.lsp.buf.code_action, desc="[c]ode [action]" },
-});
+    { "gd", telescope.lsp_definitions, desc="go [d]efinition" },
+    { "gr", telescope.lsp_references, desc="go [r]eferences" },
+
+    { "<leader>c", group="[c]ode (lsp)" },
+    { "<leader>ca", vim.lsp.buf.code_action, desc="[a]ction" },
+    { "<leader>cr", vim.lsp.buf.rename, desc="[r]ename" },
+    { "<leader>@", telescope.lsp_document_symbols, desc="[@] symbols" }
+})
 
 -- Telescope
-local telescope = require("telescope.builtin")
 wk.add({
     { "<leader>s", group = "Tele[s]cope" },
 
@@ -54,7 +58,6 @@ wk.add({
     { "<leader>sgb", telescope.git_branches, desc="[b]ranches" },
     { "<leader>sgc", telescope.git_commits, desc="[c]ommits" },
     { "<leader>sgC", telescope.git_bcommits, desc="buffer [C]ommits" },
-
     { "<leader>sf", telescope.find_files, desc="Find files" },
     { "<leader>sh", telescope.help_tags, desc="[h]elp" },
     { "<leader>sk", telescope.keymaps, desc="[k]eymaps" },
@@ -62,11 +65,47 @@ wk.add({
     { "<leader>st", telescope.builtin, desc="[t]elescope" }
 })
 
+-- git
 local gitsigns = require("gitsigns")
 wk.add({
     { "<leader>g", group="[g]it", icon=require("nvim-web-devicons").get_icon("git", "git") },
+    { "<leader>g", group="[g]it", icon=require("nvim-web-devicons").get_icon("git", "git"), mode="v" },
 
-    { "<leader>gp", gitsigns.preview_hunk, desc="[p]review hunk" }
+    { "<leader>gp", gitsigns.preview_hunk, desc="[p]review hunk" },
+    { "]c", function()
+        if vim.wo.diff then
+            vim.cmd.normal { ']c', bang = true }
+        else
+            gitsigns.nav_hunk 'next'
+        end
+    end, desc = "next [c]hange" },
+    { "[c", function()
+        if vim.wo.diff then
+            vim.cmd.normal { '[c', bang = true }
+        else
+            gitsigns.nav_hunk 'prev'
+        end
+    end, desc = "previous [c]hange" },
+
+    { '<leader>gs', gitsigns.stage_hunk, desc = '[s]tage hunk' },
+    { '<leader>gr', gitsigns.reset_hunk, desc = '[r]eset hunk' },
+    { '<leader>gS', gitsigns.stage_buffer, desc = '[S]tage buffer' },
+    { '<leader>gu', gitsigns.undo_stage_hunk, desc = '[u]ndo stage hunk' },
+    { '<leader>gR', gitsigns.reset_buffer, desc = '[R]eset buffer' },
+    { '<leader>gp', gitsigns.preview_hunk, desc = '[p]review hunk' },
+    { '<leader>gb', gitsigns.blame_line, desc = '[b]lame line' },
+    { '<leader>gd', gitsigns.diffthis, desc = '[d]iff against index' },
+    { '<leader>gD', function()
+      gitsigns.diffthis '@'
+    end, desc = '[D]iff against last commit' },
+
+    -- visual mode
+    { "<leader>gs", function()
+        gitsigns.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
+    end, desc="[s]tage hunk", mode = "v" },
+    { "<leader>gr", function()
+        gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
+    end, desc="[r]eset hunk", mode = "v" },
 })
 
 -- ToggleTerm
@@ -74,3 +113,11 @@ wk.add({
     { "<C-`>", "<cmd>ToggleTerm<CR>", desc="Open terminal" }
 });
 
+-- Toggles
+wk.add({
+    { "<leader>t", group="[T]oggles" },
+    { "<leader>td", function()
+        vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+    end, desc="[d]iagnostics" },
+    { "<leader>tD", gitsigns.toggle_deleted, { desc = '[T]oggle git show [D]eleted' } }
+})
