@@ -1,3 +1,4 @@
 return {
-    "mbbill/undotree"
+    "mbbill/undotree",
+    commit = "56c684a"
 }
