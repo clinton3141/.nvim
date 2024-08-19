@@ -24,4 +24,22 @@ return {
             lspconfig.lua_ls.setup({})
         end,
     },
+    {
+        "nvimtools/none-ls.nvim",
+        commit = "cfa65d8",
+        config = function()
+            local null_ls = require("null-ls")
+            local sources = {
+                null_ls.builtins.diagnostics.phpstan,
+            }
+
+            if vim.fn.executable("phpcs") == 1 then
+                table.insert(sources, null_ls.builtins.diagnostics.phpcs)
+            end
+
+            null_ls.setup({
+                sources = sources
+            })
+        end
+    }
 }
