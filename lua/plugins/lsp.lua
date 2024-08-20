@@ -20,8 +20,13 @@ return {
         lazy = false,
         config = function()
             local lspconfig = require("lspconfig")
-            lspconfig.phpactor.setup({})
-            lspconfig.lua_ls.setup({})
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            lspconfig.phpactor.setup({
+                capabilities = capabilities
+            })
+            lspconfig.lua_ls.setup({
+                capabilities = capabilities
+            })
         end,
     },
     {
