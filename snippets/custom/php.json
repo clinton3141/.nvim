@@ -1,0 +1,18 @@
+{
+    "Clinton's test": {
+        "prefix": "clinton",
+        "body": ["echo 'Hello, Clinton';"],
+        "description": "hello"
+    },
+    "Clinton's test2": {
+        "prefix": "clinton2",
+        "body": [
+            "/**",
+            " * echo 'Hello, ${1:name}'",
+            " */",
+            "echo 'Hello, ${1:name}';",
+            "echo '${2:how are you?}';"
+        ],
+        "description": "Hello 2"
+    }
+}
