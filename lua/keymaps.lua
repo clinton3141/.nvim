@@ -27,7 +27,8 @@ wk.add({
     { "<leader>c", group="[c]ode (lsp)" },
     { "<leader>ca", vim.lsp.buf.code_action, desc="[a]ction" },
     { "<leader>cr", vim.lsp.buf.rename, desc="[r]ename" },
-    { "<leader>@", telescope.lsp_document_symbols, desc="[@] symbols" }
+    { "<leader>@", telescope.lsp_document_symbols, desc="[@] symbols" },
+    { "<C-p>", vim.lsp.buf.toggle_float_win, desc="Signature help", mode="n" }
 })
 
 -- Telescope

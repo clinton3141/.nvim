@@ -46,5 +46,11 @@ return {
                 sources = sources
             })
         end
+    },
+    {
+        "ray-x/lsp_signature.nvim",
+        event = "VeryLazy",
+        opts = {
+        }
     }
 }
