@@ -21,8 +21,8 @@ wk.add({
 -- LSP
 wk.add({
     { "K", vim.lsp.buf.hover },
-    { "gd", telescope.lsp_definitions, desc="go [d]efinition" },
-    { "gr", telescope.lsp_references, desc="go [r]eferences" },
+    { "<leader>cgd", telescope.lsp_definitions, desc="go [d]efinition" },
+    { "<leader>cgr", telescope.lsp_references, desc="go [r]eferences" },
 
     { "<leader>c", group="[c]ode (lsp)" },
     { "<leader>ca", vim.lsp.buf.code_action, desc="[a]ction" },
