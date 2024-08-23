@@ -1,6 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    commit = "3722e3d",
+    tag = "v0.9.2",
     build = ":TSUpdate",
     opts = {
         ensure_installed = {
@@ -9,6 +9,8 @@ return {
             "html",
             "javascript",
             "lua",
+            "markdown",
+            "markdown_inline",
             "php",
             "scala",
             "typescript"

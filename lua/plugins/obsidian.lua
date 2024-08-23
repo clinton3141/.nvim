@@ -5,14 +5,22 @@ return {
     ft = "markdown",
     dependencies = {
         "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
     },
     opts = {
+        daily_notes = {
+            folder = "Daily notes",
+        },
         workspaces = {
             {
+                name = "work",
+                path = "~/obsidian/work"
+            },
+            {
                 name = "personal",
-                path = "~/obsidian"
+                path = "~/obsidian/vault",
             }
-        }
+        },
     }
 }
 
