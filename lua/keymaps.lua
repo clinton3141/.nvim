@@ -127,3 +127,26 @@ wk.add({
     end, desc="[d]iagnostics" },
     { "<leader>tD", gitsigns.toggle_deleted, { desc = '[T]oggle git show [D]eleted' } }
 })
+
+-- Obsidian
+-- TODO: this will activate on _any_ markdown file. Want it to just be inside vaults?
+local function add_obsidian_keybindings()
+    local obsidian = require("obsidian")
+    wk.add({
+        { "<leader>o", group="[O]bsidian" },
+        { "<leader>ob", "<cmd>ObsidianBacklinks<CR>", desc="[B]acklinks" },
+        { "<leader>od", "<cmd>ObsidianDailies<CR>", desc="[D]ailies" },
+        { "<leader>of", "<cmd>ObsidianFollowLink<CR>", desc="[F]ollow link" },
+        { "<leader>ol", "<cmd>ObsidianLinks<CR>", desc="[L]inks" },
+        { "<leader>on", "<cmd>ObsidianNew<CR>", desc="[N]ew" },
+        { "<leader>oo", "<cmd>ObsidianQuickSwitch<CR>", desc="[O]pen (Quickswitch)" },
+        { "<leader>os", "<cmd>ObsidianSearch<CR>", desc="[S]earch" },
+        { "<leader>or", "<cmd>ObsidianRename<CR>", desc="[R]ename" },
+        { "<leader>ot", "<cmd>ObsidianTags<CR>", desc="[T]ags" },
+    })
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",  -- Trigger only for Markdown files
+  callback = add_obsidian_keybindings
+})
