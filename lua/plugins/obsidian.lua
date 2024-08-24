@@ -31,6 +31,7 @@ return {
         daily_notes = {
             folder = "Daily notes",
         },
+        notes_subdir = "inbox",
         workspaces = workspaces,
     }
 }
