@@ -1,7 +1,7 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.9.2",
     build = ":TSUpdate",
+    commit = "0f6be799628589c2576194f5735924138f537c2f",
     opts = {
         ensure_installed = {
             "css",
