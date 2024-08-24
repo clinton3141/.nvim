@@ -109,11 +109,6 @@ wk.add({
     end, desc="[r]eset hunk", mode = "v" },
 })
 
--- ToggleTerm
-wk.add({
-    { "<C-`>", "<cmd>ToggleTerm<CR>", desc="Open terminal" }
-});
-
 -- Undo
 wk.add({
     { "<leader>u", vim.cmd.UndotreeToggle, desc="[u]ndo tree" }
