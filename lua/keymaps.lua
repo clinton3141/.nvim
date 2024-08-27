@@ -123,6 +123,14 @@ wk.add({
     { "<leader>tD", gitsigns.toggle_deleted, { desc = '[T]oggle git show [D]eleted' } }
 })
 
+-- window navigation
+wk.add({
+    { '<C-h>', '<C-w>h', desc='Move focus to the left window' },
+    { '<C-j>', '<C-w>j', desc='Move focus to the lower window' },
+    { '<C-k>', '<C-w>k', desc='Move focus to the upper window' },
+    { '<C-l>', '<C-w>l', desc='Move focus to the right window' },
+})
+
 -- Obsidian
 -- TODO: this will activate on _any_ markdown file. Want it to just be inside vaults?
 local function add_obsidian_keybindings()
