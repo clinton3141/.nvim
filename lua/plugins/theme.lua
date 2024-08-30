@@ -1,26 +1,13 @@
 return {
-    "folke/tokyonight.nvim",
-    tag = 'v4.8.0',
-    name = 'tokyonight',
+    "catppuccin/nvim",
+    tag = 'v1.9.0',
     priority = 1000,
-    config = function()
-        local colors = require("tokyonight.colors").setup()
-        vim.cmd.colorscheme "tokyonight-moon"
-        vim.api.nvim_set_hl(0, 'LineNr', {
-            fg = colors.yellow,
-            bg = colors.fg_dark
-        })
-        vim.api.nvim_set_hl(0, 'LineNrBelow', {
-            fg = colors.yellow,
-            bg = colors.bg_dark
-        })
-        vim.api.nvim_set_hl(0, 'LineNrAbove', {
-            fg = colors.yellow,
-            bg = colors.bg_dark
-        })
-        vim.api.nvim_set_hl(0, 'CursorLine', {
-            bg = colors.fg_gutter
-        })
+    config = function ()
+        require('catppuccin').setup({
+            flavor = 'frappe',
+            default_integrations = true,
+        });
+        vim.cmd.colorscheme "catppuccin"
     end
 }
 
