@@ -4,7 +4,7 @@ return {
     priority = 1000,
     config = function ()
         require('catppuccin').setup({
-            flavor = 'frappe',
+            flavour = 'frappe',
             default_integrations = true,
         });
         vim.cmd.colorscheme "catppuccin"
