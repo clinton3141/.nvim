@@ -140,6 +140,7 @@ local function add_obsidian_keybindings()
         { "<leader>ob", "<cmd>ObsidianBacklinks<CR>", desc="[B]acklinks" },
         { "<leader>od", "<cmd>ObsidianDailies<CR>", desc="[D]ailies" },
         { "<leader>of", "<cmd>ObsidianFollowLink<CR>", desc="[F]ollow link" },
+        { "<leader>oi", "<cmd>ObsidianTemplate<CR>", desc="[I]nsert template" },
         { "<leader>ol", "<cmd>ObsidianLinks<CR>", desc="[L]inks" },
         { "<leader>on", "<cmd>ObsidianNew<CR>", desc="[N]ew" },
         { "<leader>oo", "<cmd>ObsidianQuickSwitch<CR>", desc="[O]pen (Quickswitch)" },
