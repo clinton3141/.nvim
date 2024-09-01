@@ -15,3 +15,5 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.cursorline = true
 
 vim.opt.conceallevel=1
+
+vim.opt.clipboard:append { "unnamed" }
