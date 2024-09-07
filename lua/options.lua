@@ -17,3 +17,5 @@ vim.opt.cursorline = true
 vim.opt.conceallevel=1
 
 vim.opt.clipboard:append { "unnamed" }
+
+vim.opt.undofile = true
