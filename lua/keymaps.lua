@@ -131,10 +131,14 @@ wk.add({
     { '<C-l>', '<C-w>l', desc='Move focus to the right window' },
 })
 
+-- Twilight
+wk.add({
+    { '<leader>tt', '<cmd>Twilight<CR>', desc='Toggle Twilight' }
+})
+
 -- Obsidian
 -- TODO: this will activate on _any_ markdown file. Want it to just be inside vaults?
 local function add_obsidian_keybindings()
-    local obsidian = require("obsidian")
     wk.add({
         { "<leader>o", group="[O]bsidian" },
         { "<leader>ob", "<cmd>ObsidianBacklinks<CR>", desc="[B]acklinks" },
